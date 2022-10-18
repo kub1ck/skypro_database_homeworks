@@ -1,6 +1,8 @@
-from utils import *
-from creation import *
-from insertion import *
+from utils import db_connect
+from creation import run_creation_tables
+from insertion import run_insertion_tables
+from roles import run_creation_roles
+from users import run_creation_users
 
 
 def main() -> None:
@@ -13,6 +15,9 @@ def main() -> None:
 
     run_creation_tables(cursor)
     run_insertion_tables(cursor)
+
+    run_creation_roles(cursor)
+    run_creation_users(cursor)
 
     cursor.close()
     connection.close()
